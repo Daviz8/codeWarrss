@@ -66,19 +66,16 @@ isPalindrome(121);
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
- const hash = {};
+ let map = new Map();
 
  for (i = 0; i < nums.length; i++) {
-    let val = num[i];
-    hash[val] = i;
- }   
+    let num1 = nums[i];
+    let num2 = target - num1;  
 
- for (i = 0; i < nums.length; i++) {
- let PotentialKey = target - nums[i];
-
- if(hash[PotentialKey] && hash[PotentialKey] !== i){
-    return [i , hash[PotentialKey]]
+ if(map.has(num2)){
+    return [i , map.get(num2)]
  }
+ map.set(num1 , i )
  }  
 
 };
