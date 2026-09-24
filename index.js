@@ -80,6 +80,25 @@ var twoSum = function(nums, target) {
 
 };
 
+   
+/*LEETCODE CONTAINS DUPLICATE */
+/*TIME COMPLEXITY = LINEAR O(n) **/
+/* SPACE COMPLEXITY = LINEAR O(n) **/
+
+function containsDuplicates(nums) {
+let NumSet= new Set(nums);
+return (NumSet.size !== nums.length);
+}
+
+// ARRAY CONCEPTS;
+-INDEXOF 
+-LASTINDEXOF 
+
+//TODO console.log(a) => [ 1, 2, 3, 1 ]
+//TODO console.log(new Set(a)) => Set { 1, 2, 3 }
+//TODO console.log((new Set(a)).size) => 3
+//TODO  console.log(a.length) => 4
+
 
 
 
