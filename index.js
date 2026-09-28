@@ -82,10 +82,10 @@ var twoSum = function(nums, target) {
 
    
 /*LEETCODE CONTAINS DUPLICATE */
-/*TIME COMPLEXITY = LINEAR O(n) **/
-/* SPACE COMPLEXITY = LINEAR O(n) **/
+/*TIME COMPLEXITY = CONSTANT TIME  O(1) **/
+/* SPACE COMPLEXITY = CONSTAnt TIME  O(1) **/
 
-function containsDuplicates(nums) {
+function containsDuplicates_1(nums) {
 let NumSet= new Set(nums);
 return (NumSet.size !== nums.length);
 }
@@ -99,6 +99,14 @@ return (NumSet.size !== nums.length);
 //TODO console.log((new Set(a)).size) => 3
 //TODO  console.log(a.length) => 4
 
+function containsDuplicates_1(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums.indexOf(nums[i]) !== nums.lastIndexOf(nums[i])) {
+      return true
+    }
+  }
+  return false
+}
 
 
 
