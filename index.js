@@ -7,7 +7,6 @@ function breakChocolate(n, m) {
 
 OR
 
-
 function breakChocolate(n, m) {
   const product = n * m;
   if (product > 0) {
@@ -108,6 +107,40 @@ function containsDuplicates_1(nums) {
   return false
 }
 
+/*LEETCODE CONTAINS DUPLICATE 2 */
+/*TIME COMPLEXITY = LINEAR  TIME  O(1) **/
+/* SPACE COMPLEXITY =  LINEAR TIME  O(1) **/
+
+var containsNearbyDuplicate_2 = function(nums, k) {
+    const map = new Map();
+    
+    for (let i = 0; i < nums.length; i++) {
+        const currentNum = nums[i];
+        
+        // 1. Have we seen this number before?
+        if (map.has(currentNum)) {
+            const previousIndex = map.get(currentNum);
+            
+            // 2. Is the distance within the limit k?
+            if (i - previousIndex <= k) {
+                return true; 
+            }
+        }
+        
+        // Save (or overwrite) the number and its current index in the map
+        map.set(currentNum, i);
+    }
+    return false;
+};
 
 
+//LEETCODE ROTATE ARRAY 
 
+var rotate = function(nums, k) {
+  k = k % nums.length;
+    const tail = nums.splice(nums.length - k, k);
+    Array.prototype.unshift.apply(nums, tail);
+};
+
+// IF K = k % nums.length it fails for this use case 
+// nums = [-2147483648,0,2147483647]  k = 100000
